@@ -1,0 +1,243 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  /* border: 0; */
+  font-size: 62.5%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  margin-bottom: 10%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  /* border: 1px solid rgb(196, 108, 0); */
+  font-family: monospace;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+#logo {
+  background-image: url("https://msspricess.b-cdn.net/logo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 2%;
+  height: 10vh;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 20px;
+  font-weight: 600;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.rateSection {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: monospace;
+    font-size: 3rem;
+    margin-top: 20px;
+
+
+}
+
+span {
+    font-weight: bold;
+    color: crimson;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 2rem;
+    font-family: monospace;
+    border-collapse: collapse;
+
+    width: 80%;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 80%;
+ 
+  }
+
+  table th,
+  table td {
+ 
+    padding: .625em;
+    text-align: center;
+  }
+
+  table td {
+    border: 1px solid black;
+  }
+
+  table td:first-child {
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+
+  table td:last-child {
+    color: darkorange;
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+
+  
+  table th {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  
+  
+  
+  
+  
