@@ -44,9 +44,9 @@ goldPrice()
 
 
 
-    oneGramBuy.textContent = Math.floor((dinarRate24K/5) * 1)*5;
-    twoPointFiveGramsBuy.textContent = Math.floor((dinarRate24K/5) * 2.5)*5;
-    fiveGramsBuy.textContent = Math.floor((dinarRate24K/5) * 5)*5;
+    oneGramBuy.textContent = Math.floor((dinarRate24K) * 1);
+    twoPointFiveGramsBuy.textContent = Math.floor((dinarRate24K) * 2.5);
+    fiveGramsBuy.textContent = Math.floor((dinarRate24K) * 5);
     tenGramsBuy.textContent = Math.floor((dinarRate24K/5) * 10)*5;
     oneTolaBuy.textContent = Math.floor((dinarRate24K/5) * 11.664)*5;
     twentyGramsBuy.textContent = Math.floor((dinarRate24K/5) * 20)*5;
