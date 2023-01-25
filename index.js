@@ -19,9 +19,10 @@ let ttBarBuy = document.getElementById("ttBuy");
 
 async function goldPrice() {
   let resp = await axios.get(
-    "https://api.polygon.io/v3/quotes/C:XAU-USD?apiKey=MSrxp0wCzzxnwMtWQaCS9OA3ph2jlA9w"
+    "https://marketdata.tradermade.com/api/v1/live?currency=XAUUSD&api_key=wLD-WysSDKBfHki3b3K9"
   );
-  return resp.data.results[0].ask_price;
+  console.log(resp.data.quotes[0].ask);
+  return resp.data.quotes[0].ask;
 }
 
 goldPrice()
@@ -71,13 +72,6 @@ goldPrice()
     // fiveTolaBuy.textContent = Math.floor((dinarRate24K) * 58.32);
     // hundredGramsBuy.textContent = Math.floor((dinarRate24K) * 100);
     // ttBarBuy.textContent = Math.floor((dinarRate24K) * 116.523);
-
-
-
-    
-
-
-    
 
 
   })
