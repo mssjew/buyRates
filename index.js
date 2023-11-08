@@ -19,7 +19,7 @@ let ttBarBuy = document.getElementById("ttBuy");
 
 async function goldPrice() {
   let resp = await axios.get(
-    "https://marketdata.tradermade.com/api/v1/live?currency=XAUUSD&api_key=gUkkarv9QS3rDdC4nbNk"
+    "https://marketdata.tradermade.com/api/v1/live?currency=XAUUSD&api_key=UdH2AVy1g_PfTObGqA9d"
   );
   console.log(resp.data.quotes[0].ask);
   return resp.data.quotes[0].ask;
