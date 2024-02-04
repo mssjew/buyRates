@@ -1,5 +1,7 @@
 let livePrice = document.getElementById("livePrice");
 
+const API_KEY = "l0DK0VWakPsTM75PVDlT";
+
 
 let oneGramBuy = document.getElementById("1gBuy");
 let twoPointFiveGramsBuy = document.getElementById("2.5gBuy");
@@ -19,7 +21,8 @@ let ttBarBuy = document.getElementById("ttBuy");
 
 async function goldPrice() {
   let resp = await axios.get(
-    "https://marketdata.tradermade.com/api/v1/live?currency=XAUUSD&api_key=UdH2AVy1g_PfTObGqA9d"
+    `https://marketdata.tradermade.com/api/v1/live?currency=XAUUSD&api_key=${API_KEY}`
+    
   );
   console.log(resp.data.quotes[0].ask);
   return resp.data.quotes[0].ask;
