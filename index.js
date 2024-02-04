@@ -1,6 +1,6 @@
 let livePrice = document.getElementById("livePrice");
 
-const API_KEY = "l0DK0VWakPsTM75PVDlT";
+const API_KEY = "mQK2zB2lxayaitBVpJEC";
 
 
 let oneGramBuy = document.getElementById("1gBuy");
