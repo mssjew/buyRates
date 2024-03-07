@@ -32,7 +32,7 @@ goldPrice()
   .then((price) => {
     livePrice.textContent = "$"+price;
 
-    let dinarRate24K = ((price-5)/ 31.10347) * .37745;
+    let dinarRate24K = ((price-20)/ 31.10347) * .37745;
 
     // twoPointFiveGramsBuy.textContent = Math.floor((dinarRate24K/10) * 2.5)*10;
     // fiveGramsBuy.textContent = Math.floor((dinarRate24K/10) * 5)*10;
