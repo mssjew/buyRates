@@ -59,7 +59,7 @@ goldPrice()
     fiftyGramsBuy.textContent = Math.floor((dinarRate24K/5) * 50)*5;
     fiveTolaBuy.textContent = Math.floor((dinarRate24K/5) * 58.32)*5;
     hundredGramsBuy.textContent = Math.floor((dinarRate24K/5) * 100)*5;
-    ttBarBuy.textContent = (Math.floor((dinarRate24K/5) * 116.523)*5)-10;
+    ttBarBuy.textContent = (Math.floor((dinarRate24K/5) * 116.523)*5)+5;
 
 
 
