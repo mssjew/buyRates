@@ -1,6 +1,6 @@
 let livePrice = document.getElementById("livePrice");
 
-const API_KEY = "K4Dlr-8Az2ZN9sxp72y1";
+const API_KEY = "bZRzv-wp3xSZ9P2_NbfU";
 
 
 let oneGramBuy = document.getElementById("1gBuy");
@@ -32,7 +32,7 @@ goldPrice()
   .then((price) => {
     livePrice.textContent = "$"+price;
 
-    let dinarRate24K = ((price-20)/ 31.10347) * .37745;
+    let dinarRate24K = ((price-35)/ 31.10347) * .37745;
 
     // twoPointFiveGramsBuy.textContent = Math.floor((dinarRate24K/10) * 2.5)*10;
     // fiveGramsBuy.textContent = Math.floor((dinarRate24K/10) * 5)*10;
