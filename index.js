@@ -32,7 +32,7 @@ goldPrice()
   .then((price) => {
     livePrice.textContent = "$"+price;
 
-    let dinarRate24K = ((price-35)/ 31.10347) * .37745;
+    let dinarRate24K = ((price-50)/ 31.10347) * .37745;
 
     // twoPointFiveGramsBuy.textContent = Math.floor((dinarRate24K/10) * 2.5)*10;
     // fiveGramsBuy.textContent = Math.floor((dinarRate24K/10) * 5)*10;
@@ -48,14 +48,14 @@ goldPrice()
 
 
 
-    oneGramBuy.textContent = Math.floor((dinarRate24K) * 1);
-    twoPointFiveGramsBuy.textContent = Math.floor((dinarRate24K) * 2.5);
-    fiveGramsBuy.textContent = Math.floor((dinarRate24K) * 5);
-    tenGramsBuy.textContent = Math.floor((dinarRate24K/5) * 10)*5;
+    oneGramBuy.textContent = Math.floor((dinarRate24K) * 1) - 2;
+    twoPointFiveGramsBuy.textContent = Math.floor((dinarRate24K) * 2.5) - 8;
+    fiveGramsBuy.textContent = Math.floor((dinarRate24K) * 5) - 16;
+    tenGramsBuy.textContent = Math.floor((dinarRate24K/5) * 10)*5 - 10;
     oneTolaBuy.textContent = Math.floor((dinarRate24K/5) * 11.664)*5;
-    twentyGramsBuy.textContent = Math.floor((dinarRate24K/5) * 20)*5;
+    twentyGramsBuy.textContent = Math.floor((dinarRate24K/5) * 20)*5 - 10;
     twoTolaBuy.textContent = Math.floor((dinarRate24K/5) * 23.328)*5;
-    oneOunceBuy.textContent = Math.floor((dinarRate24K/5) * 31.10347)*5;
+    oneOunceBuy.textContent = Math.floor((dinarRate24K/5) * 31.10347)*5 - 10;
     fiftyGramsBuy.textContent = Math.floor((dinarRate24K/5) * 50)*5;
     fiveTolaBuy.textContent = Math.floor((dinarRate24K/5) * 58.32)*5;
     hundredGramsBuy.textContent = Math.floor((dinarRate24K/5) * 100)*5;
