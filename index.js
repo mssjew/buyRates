@@ -1,6 +1,6 @@
 let livePrice = document.getElementById("livePrice");
 
-const API_KEY = "fz7uld3FsJ8nMBcbpn1D";
+const API_KEY = "KAOHbdXUP9XfaHx61Q80ps3pHbEC10UQ";
 
 
 let oneGramBuy = document.getElementById("1gBuy");
@@ -21,11 +21,11 @@ let ttBarBuy = document.getElementById("ttBuy");
 
 async function goldPrice() {
   let resp = await axios.get(
-    `https://marketdata.tradermade.com/api/v1/live?currency=XAUUSD&api_key=${API_KEY}`
+    `https://api.massive.com/v1/last_quote/currencies/XAU/USD?apiKey=${API_KEY}`
     
   );
-  console.log(resp.data.quotes[0].ask);
-  return resp.data.quotes[0].ask;
+  console.log(resp.data.last.ask);
+  return resp.data.last.ask;
 }
 
 goldPrice()
