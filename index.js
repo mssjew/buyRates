@@ -1,6 +1,6 @@
 let livePrice = document.getElementById("livePrice");
 
-const API_KEY = "KAOHbdXUP9XfaHx61Q80ps3pHbEC10UQ";
+const API_KEY = "sSGPCXG_vSX4FtMsfS3qPo4W2RZMs98w";
 
 
 let oneGramBuy = document.getElementById("1gBuy");
@@ -15,6 +15,7 @@ let fiftyGramsBuy = document.getElementById("50gBuy");
 let fiveTolaBuy = document.getElementById("5tBuy");
 let hundredGramsBuy = document.getElementById("100gBuy");
 let ttBarBuy = document.getElementById("ttBuy");
+let oneKgSilverBuy = document.getElementById("1kgSilverBuy");
 
 
 
@@ -25,6 +26,15 @@ async function goldPrice() {
     
   );
   console.log(resp.data.last.ask);
+  return resp.data.last.ask;
+}
+
+async function silverPrice() {
+  let resp = await axios.get(
+    `https://api.massive.com/v1/last_quote/currencies/XAG/USD?apiKey=${API_KEY}`
+    
+  );
+  console.log("Silver price:", resp.data.last.ask);
   return resp.data.last.ask;
 }
 
@@ -81,4 +91,16 @@ goldPrice()
   .catch((err) => {
     currentPrice = 0;
     console.log("Error failed to get price:", err);
+  });
+
+silverPrice()
+  .then((price) => {
+    // Silver price is per troy ounce, 1 kg = 32.15074657 troy ounces
+    let silverPricePerKg = price * 32.15074657;
+    // Convert to dinars and apply buy rate formula
+    let silverDinarRate = ((silverPricePerKg-30) / 1000) * 0.37745 * 1000;
+    oneKgSilverBuy.textContent = Math.floor(silverDinarRate / 5) * 5;
+  })
+  .catch((err) => {
+    console.log("Error failed to get silver price:", err);
   });
