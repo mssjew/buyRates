@@ -381,6 +381,20 @@ tbody tr:focus-within {
   }
 }
 
+/* Spot price indicator (inline with weight) */
+.spot-price {
+  font-size: 0.75em;
+  color: #666;
+  font-weight: normal;
+  margin-left: 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .spot-price {
+    color: #aaa;
+  }
+}
+
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   :root {

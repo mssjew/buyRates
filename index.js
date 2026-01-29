@@ -39,6 +39,7 @@ const elements = {
   lastUpdated: document.getElementById("last-updated"),
   refreshBtn: document.getElementById("refresh-btn"),
   silverPrice: document.getElementById("1kgSilverBuy"),
+  silverSpot: document.getElementById("silverSpot"),
 };
 
 // Cache gold weight elements
@@ -219,6 +220,10 @@ function updateSilverPrice(silverPriceUSD) {
   if (elements.silverPrice) {
     const price = calculateSilverBuyPrice(silverPriceUSD);
     elements.silverPrice.textContent = price.toLocaleString();
+  }
+  // Show XAG/USD spot price inline
+  if (elements.silverSpot) {
+    elements.silverSpot.textContent = `($${silverPriceUSD.toFixed(2)}/oz)`;
   }
 }
 
