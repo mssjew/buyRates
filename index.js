@@ -5,8 +5,7 @@
 
 // Configuration
 const CONFIG = {
-  API_KEY: "sSGPCXG_vSX4FtMsfS3qPo4W2RZMs98w",
-  API_BASE_URL: "https://api.massive.com/v1/last_quote/currencies",
+  API_BASE_URL: "/.netlify/functions/prices",
   GOLD_SPREAD: 50,        // USD spread from spot for gold
   SILVER_SPREAD: 30,      // USD spread from spot for silver
   BHD_RATE: 0.37745,      // USD to BHD conversion rate
@@ -143,7 +142,7 @@ async function fetchWithRetry(url, attempts = CONFIG.RETRY_ATTEMPTS) {
  * @returns {Promise<number>} Gold price per troy ounce in USD
  */
 async function fetchGoldPrice() {
-  const url = `${CONFIG.API_BASE_URL}/XAU/USD?apiKey=${CONFIG.API_KEY}`;
+  const url = `${CONFIG.API_BASE_URL}?symbol=XAU`;
   const data = await fetchWithRetry(url);
   
   if (!data?.last?.ask) {
@@ -158,7 +157,7 @@ async function fetchGoldPrice() {
  * @returns {Promise<number>} Silver price per troy ounce in USD
  */
 async function fetchSilverPrice() {
-  const url = `${CONFIG.API_BASE_URL}/XAG/USD?apiKey=${CONFIG.API_KEY}`;
+  const url = `${CONFIG.API_BASE_URL}?symbol=XAG`;
   const data = await fetchWithRetry(url);
   
   if (!data?.last?.ask) {
