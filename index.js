@@ -185,7 +185,7 @@ function calculateGoldBuyPrice(dinarRate, weight) {
  * @returns {number} Buy price in BHD
  */
 function calculateSilverBuyPrice(silverPriceUSD) {
-  const adjustedPerOz = silverPriceUSD + 5 + 4;
+  const adjustedPerOz = silverPriceUSD + 4;
   const silverPricePerKg = adjustedPerOz * CONFIG.TROY_OZ_PER_KG;
   const silverDinarRate = silverPricePerKg * CONFIG.BHD_RATE;
   return Math.floor(silverDinarRate / 5) * 5;
