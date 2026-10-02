@@ -6,7 +6,6 @@
 // Configuration
 const CONFIG = {
   API_BASE_URL: "/.netlify/functions/prices",
-  GOLD_SPREAD: 50,        // USD spread from spot for gold
   SILVER_SPREAD: 30,      // USD spread from spot for silver
   BHD_RATE: 0.37745,      // USD to BHD conversion rate
   TROY_OZ_TO_GRAMS: 31.10347,
@@ -16,19 +15,20 @@ const CONFIG = {
 };
 
 // Weight configurations for gold products
+// deduction: BHD below the bar's spot value (same table as live5.mssbars.com)
 const GOLD_WEIGHTS = [
-  { id: "1gBuy", grams: 1, adjustment: -2, rounding: 1 },
-  { id: "2.5gBuy", grams: 2.5, adjustment: -8, rounding: 1 },
-  { id: "5gBuy", grams: 5, adjustment: -16, rounding: 1 },
-  { id: "10gBuy", grams: 10, adjustment: -10, rounding: 5 },
-  { id: "1tBuy", grams: 11.664, adjustment: 0, rounding: 5 },
-  { id: "20gBuy", grams: 20, adjustment: -10, rounding: 5 },
-  { id: "2tBuy", grams: 23.328, adjustment: 0, rounding: 5 },
-  { id: "1ozBuy", grams: 31.10347, adjustment: -10, rounding: 5 },
-  { id: "50gBuy", grams: 50, adjustment: 0, rounding: 5 },
-  { id: "5tBuy", grams: 58.32, adjustment: 0, rounding: 5 },
-  { id: "100gBuy", grams: 100, adjustment: 0, rounding: 5 },
-  { id: "ttBuy", grams: 116.523, adjustment: 0, rounding: 5 },
+  { id: "1gBuy", grams: 1, deduction: 0 },
+  { id: "2.5gBuy", grams: 2.5, deduction: 3 },
+  { id: "5gBuy", grams: 5, deduction: 10 },
+  { id: "10gBuy", grams: 10, deduction: 10 },
+  { id: "1tBuy", grams: 11.664, deduction: 15 },
+  { id: "20gBuy", grams: 20, deduction: 15 },
+  { id: "2tBuy", grams: 23.328, deduction: 15 },
+  { id: "1ozBuy", grams: 31.10347, deduction: 20 },
+  { id: "50gBuy", grams: 50, deduction: 25 },
+  { id: "5tBuy", grams: 58.32, deduction: 25 },
+  { id: "100gBuy", grams: 100, deduction: 30 },
+  { id: "ttBuy", grams: 116.523, deduction: 30 },
 ];
 
 // DOM Elements cache
@@ -169,14 +169,13 @@ async function fetchSilverPrice() {
 
 /**
  * Calculate gold buy price for a given weight
- * @param {number} dinarRate - Base rate in BHD per gram
+ * @param {number} dinarRate - Spot value in BHD per gram
  * @param {object} weight - Weight configuration object
- * @returns {number} Calculated buy price
+ * @returns {number} Spot value of the bar minus its deduction, rounded down to the dinar
  */
 function calculateGoldBuyPrice(dinarRate, weight) {
-  const { grams, adjustment, rounding } = weight;
-  const basePrice = Math.floor((dinarRate / rounding) * grams) * rounding;
-  return basePrice + adjustment;
+  const { grams, deduction } = weight;
+  return Math.floor(dinarRate * grams - deduction);
 }
 
 /**
@@ -199,8 +198,8 @@ function updateGoldPrices(goldPriceUSD) {
   // Display spot price
   elements.livePrice.textContent = `$${goldPriceUSD.toFixed(2)}`;
   
-  // Calculate base rate: (spot - spread) / troy_oz * BHD_rate
-  const dinarRate24K = ((goldPriceUSD - CONFIG.GOLD_SPREAD) / CONFIG.TROY_OZ_TO_GRAMS) * CONFIG.BHD_RATE;
+  // Spot value per gram: spot / troy_oz * BHD_rate
+  const dinarRate24K = (goldPriceUSD / CONFIG.TROY_OZ_TO_GRAMS) * CONFIG.BHD_RATE;
   
   // Update each weight
   GOLD_WEIGHTS.forEach(weight => {
