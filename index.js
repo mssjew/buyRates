@@ -18,16 +18,16 @@ const CONFIG = {
 // deduction: BHD below the bar's spot value (same table as live5.mssbars.com)
 const GOLD_WEIGHTS = [
   { id: "1gBuy", grams: 1, deduction: 0 },
-  { id: "2.5gBuy", grams: 2.5, deduction: 3 },
-  { id: "5gBuy", grams: 5, deduction: 10 },
-  { id: "10gBuy", grams: 10, deduction: 10 },
+  { id: "2.5gBuy", grams: 2.5, deduction: 10 },
+  { id: "5gBuy", grams: 5, deduction: 15 },
+  { id: "10gBuy", grams: 10, deduction: 15 },
   { id: "1tBuy", grams: 11.664, deduction: 15 },
-  { id: "20gBuy", grams: 20, deduction: 15 },
+  { id: "20gBuy", grams: 20, deduction: 20 },
   { id: "2tBuy", grams: 23.328, deduction: 15 },
   { id: "1ozBuy", grams: 31.10347, deduction: 20 },
   { id: "50gBuy", grams: 50, deduction: 25 },
   { id: "5tBuy", grams: 58.32, deduction: 25 },
-  { id: "100gBuy", grams: 100, deduction: 30 },
+  { id: "100gBuy", grams: 100, deduction: 40 },
   { id: "ttBuy", grams: 116.523, deduction: 30 },
 ];
 
